@@ -43,7 +43,7 @@ for filename in os.listdir(folder_path):
         print(f"File: {filename} - Ambiguous sentences: {ambiguous_count}")
         total_ambiguous_count += ambiguous_count
 
-print(f"\nTotal ambiguous sentences across all files: {total_ambiguous_count}")
+print(f"\nTotal missing sentences across all files: {total_ambiguous_count}")
 
 
 import fitz  
@@ -108,3 +108,4 @@ if __name__ == "__main__":
             flagged_sentences.append(sentence)
 
     annotate_pdf_with_recommendations(pdf_path, output_pdf_path, flagged_sentences)
+

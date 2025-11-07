@@ -1,29 +1,26 @@
 # Detection of Missing Information & Vague Pronoun Detector
 
-This project helps find problems in Software Requirements Specifications (SRS) like missing info or unclear references.
+This project aims to automatically identify problematic sentences in Software Requirements Specifications (SRS) related to missing information and ambiguous pronoun references, thereby improving document clarity and review efficiency.
 
-## Files
+## Project Overview
 
-- `extracting.py`  
-  Creates a dataset of sentences with missing info indicators like "TBD", "to be decided", or blanks.
+- `Dataset Creation`  
+  A synthetic dataset was created comprising sentences that exhibit indicators of missing information such as "TBD", "to be decided", blank values.
 
-- `model.py`  
-  Trains a Transformer model to detect problematic sentences in requirements.
+- `Model Training`  
+  Two Transformer-based models were trained independently:  
+- One model was trained on the synthetic missing information dataset to detect vague specifications.  
+- The other model was trained on the Definite pronoun resolution dataset to recognize ambiguous pronoun references.
 
-- `testing.py`  
-  Tests your model on an input PDF and produces an annotated PDF highlighting issues with recommendations.
+- `Testing and Annotation`  
+  The system processes SRS documents by extracting text, segmenting it into sentences and evaluating each sentence independently through both models. Sentences flagged by either model are annotated with highlights and context-specific recommendations to aid in clarifying vague terms and ambiguous pronouns. 
 
-- External dataset "Definite Pronoun Resolution Dataset" is used to detect unclear or ambiguous pronouns (like "it", "they") in the text.
-
-## Features
-
-- Automated detection of missing or vague information with common indicators like TBD.
-- Pronoun detection and basic anaphora resolution to find ambiguous references.
-- Annotated PDF output with sentence highlights and inline recommendations.
 
 ## How to use
 
 1. Run `extracting.py` to build your dataset.  
-2. Train the model with `model.py`.  
-3. Run `testing.py` with your PDF to get an annotated output.
+2. Train each model independently using its respective dataset.  
+3. Run the system on SRS documents to obtain annotated outputs with flagged sentences and recommendations.
+
+**Note:** All files required for training and testing both models have been uploaded.
 
